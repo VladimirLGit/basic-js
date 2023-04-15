@@ -42,10 +42,15 @@ function generationStr(source, repeat, separator, objAdd) {
   }
   else {
     for (let index = 0; index < repeat; index++) {
-      newStr.push( source )   
+      newStr.push( '' + source )   
     }
   }
-  if (newStr.length>0) return newStr.join(separator)
+  if (newStr.length>0) {    
+    if (separator === undefined)
+      return newStr.join('+')
+    else
+      return newStr.join(separator);
+  }
   return newStr.join('');
 }
 
@@ -65,3 +70,8 @@ module.exports = {
 //console.log(repeater('TESTstr', { separator: 'ds', addition: 'ADD!', additionSeparator: ')))000' }))
 //console.log(repeater('la', { repeatTimes: 3, separator: 's' }))
 //console.log(repeater('la', { repeatTimes: 3, separator: 's', addition: '+', additionRepeatTimes: 1 }))
+//console.log(repeater(null, { repeatTimes: 3, separator: '??? ', addition: null, additionRepeatTimes: 3, additionSeparator: '!!!' })); 
+//'nullnull!!!null!!!null??? nullnull!!!null!!!null??? nullnull!!!null!!!null');
+
+//console.log(repeater('REPEATABLE_STRING', { repeatTimes: 2, addition: 'ADDITION', additionSeparator: '222', additionRepeatTimes: 3 }));
+//, 'REPEATABLE_STRINGADDITION222ADDITION222ADDITION+REPEATABLE_STRINGADDITION222ADDITION222ADDITION');

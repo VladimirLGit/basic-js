@@ -17,6 +17,7 @@ function transform(arr) {
   let result = [];
   if(Array.isArray(arr)){
     for(let index = 0; index < arr.length; index++){
+      console.log(arr[index]);
       switch( arr[index] ){
         case '--double-next':
           if(index !== 0 && index !== arr.length - 1){
